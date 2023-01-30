@@ -1,0 +1,35 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Restaurant";
+    ViewBag.Pricelists = new List<string>();
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div>
+        @*@Html.DropDownList(ViewBag as SelectList, "Choose a dish")*@
+        @*<select name="select">
+            @foreach (string item in ViewBag.Dishes)
+            {
+                <option value=@item>@item"</option>
+            }
+        </select>*@
+        @*<input type="submit" value="Send" />*@
+    </div>
+
+    @Html.ActionLink("Add", "AddDish")
+
+    <div>
+        <ul data-role="listview" data-view="tiles">
+            @foreach (string item in ViewBag.Pricelists)
+            {
+                <li value=@item>@item"</li>
+            }
+        </ul>
+    </div>
+    @*@if (ViewBag.Select != null)
+        {
+            <p>ViewBag.Select</p>
+        }*@
+</div>
