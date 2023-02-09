@@ -1,0 +1,29 @@
+﻿@model PL.Models.RegisterModel
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+@using (Html.BeginForm())
+{   
+    @Html.AntiForgeryToken()
+    <div>
+        First Name : @Html.EditorFor(m => m.FirstName)
+    </div>
+    <div>
+        Last Name : @Html.EditorFor(m => m.LastName)
+    </div>
+    <div>
+        Email : @Html.EditorFor(m => m.Email)
+    </div>
+    <div>
+        Username : @Html.EditorFor(m => m.Username)
+    </div>
+    <div>
+        Password : @Html.EditorFor(m => m.Password)
+    </div>
+    <div>
+        <input type="submit" value="Sign Up" />
+    </div>
+    <p>@ViewBag.ErrorMessage</p>
+}

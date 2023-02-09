@@ -1,23 +1,21 @@
-﻿@model PL.Models.UserModel
+﻿@model PL.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
+    @Html.AntiForgeryToken()
     <div>
-        Username : @Html.TextBoxFor(m => m.UserName)
+        Email : @Html.EditorFor(m => m.Email)
     </div>
     <div>
-        Password : @Html.PasswordFor(m => m.Password) 
+        Password : @Html.EditorFor(m => m.Password)
     </div>
     <div>
         <input type="submit" value="Sign In" />
     </div>
-    <p>@ViewBag.ErrorMessage</p>
+    @Html.ValidationSummary()
+    <p>@ViewBag.returnUrl</p>
 }
-
-<script>
-    
-</script>

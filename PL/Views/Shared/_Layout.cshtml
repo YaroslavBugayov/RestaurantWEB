@@ -30,13 +30,13 @@
                     @{
                         if (isLoggined)
                         {
-                            <li>@Html.ActionLink("Check", "Login", "Auth")</li>
+                            <li>@Html.ActionLink("Check", "Check", "Check")</li>
                             <li>@Html.ActionLink("Sign Out", "Logout", "Auth")</li>
                         }
                         else
                         {
                             <li>@Html.ActionLink("Sign In", "Login", "Auth")</li>
-                            <li>@Html.ActionLink("Sign Up", "Login", "Auth")</li>
+                            <li>@Html.ActionLink("Sign Up", "Registration", "Registration")</li>
                         }
                     }
 

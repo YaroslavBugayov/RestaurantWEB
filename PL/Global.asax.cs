@@ -23,7 +23,8 @@ namespace PL
 
             IKernel ninjectKernel = new StandardKernel(new NinjectBindings());
             DependencyResolver.SetResolver(new NinjectDependencyResolver(ninjectKernel));
-            
+            ninjectKernel.Unbind<ModelValidatorProvider>();
+
 
         }
     }

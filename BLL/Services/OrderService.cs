@@ -22,7 +22,7 @@ namespace BLL.Services
         public IEnumerable<OrderDTO> GetUsersOrders(int id)
         {
             var orderDTOs = new List<OrderDTO>();
-            foreach (var order in Database.Orders.GetAll().Where(o => o.UserId.Equals(id))) 
+            foreach (var order in Database.Orders.Find(o => o.UserId.Equals(id))) 
             {
                 orderDTOs.Add(new OrderDTO()
                 {

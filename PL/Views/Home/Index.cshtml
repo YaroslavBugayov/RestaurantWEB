@@ -1,35 +1,35 @@
-﻿@model IEnumerable<string>
-
-@{
+﻿@{
     ViewBag.Title = "Restaurant";
-    ViewBag.Pricelists = new List<string>();
+    int counter1 = 0;
+    int counter2 = 0;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <div>
-        @*@Html.DropDownList(ViewBag as SelectList, "Choose a dish")*@
-        @*<select name="select">
+    @using (Html.BeginForm())
+    {
+        <select name="select">
             @foreach (string item in ViewBag.Dishes)
             {
-                <option value=@item>@item"</option>
+                <option value=@counter1>@item</option>
+                counter1++;
             }
-        </select>*@
-        @*<input type="submit" value="Send" />*@
-    </div>
+        </select>
+        <input type="submit" value="Send" />
+    }
 
-    @Html.ActionLink("Add", "AddDish")
+    @if (ViewBag.Pricelists != null)
+    {
+        <div class="table-bordered" style="display: flex; width: 250px">
+            <ul data-role="listview" data-view="table">
+                @foreach (string item in ViewBag.Pricelists)
+                {
+                    <li value=@counter2>@item</li>
+                    counter2++;
+                }
+            </ul>
+        </div>
+    }
+    
 
-    <div>
-        <ul data-role="listview" data-view="tiles">
-            @foreach (string item in ViewBag.Pricelists)
-            {
-                <li value=@item>@item"</li>
-            }
-        </ul>
-    </div>
-    @*@if (ViewBag.Select != null)
-        {
-            <p>ViewBag.Select</p>
-        }*@
 </div>
